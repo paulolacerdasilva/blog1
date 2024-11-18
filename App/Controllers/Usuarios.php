@@ -110,7 +110,8 @@ class Usuarios extends Controller
                     if($usuario):
                      $this->criarSessaoUsuario($usuario);
                     else:
-                        die("Usuario ou senha inválido");
+                        Sessao::mensagem('usuario', 'Usuário ou senha inválidos', 'alert alert-danger');
+    
                     endif;
                 endif;
             endif;
@@ -133,4 +134,13 @@ class Usuarios extends Controller
         $_SESSION['usuario_nome'] = $usuario->nome;
         $_SESSION['usuario_email'] = $usuario->email;
     }// fim da função criarSessaoUsuario
-}
+
+    public function sair(){
+        unset($_SESSION['usuario_id']);
+        unset($_SESSION['usuario_nome']);
+        unset($_SESSION['usuario_email']);
+
+        session_destroy();
+        header('Location:'.URL.'');
+    }//fim da função sair
+}//fim da classe Usuarios

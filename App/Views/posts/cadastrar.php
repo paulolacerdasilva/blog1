@@ -22,13 +22,13 @@
                     </div>
                 </div>
 
-            <div class="form-group">
-                <label for="texto">Texto:<sup class="text-danger">*</sup></label>
-                <textarea name="texto" id="texto" class="form-control <?= $dados['texto_erro'] ? 'is-invalid' : '' ?>" rows="5"><?=$dados['texto']?></textarea>
-                <div class="invalid-feedback">
-                    <?=$dados['texto_erro'] ?>
+                <div class="form-group">
+                    <label for="texto">Texto: <sup class="text-danger">*</sup></label>
+                    <textarea type='text' name='texto' rows="5" id='texto' class='form-control <?= $dados['texto_erro'] ? 'is-invalid' : '' ?>'></textarea>
+                    <div class="invalid-feedback">
+                        <?= $dados['texto_erro'] ?>
+                    </div>
                 </div>
-            </div>
             <input type="submit" value="Cadastrar Post" class="btn btn-info btn-block">
             </form>
         </div>

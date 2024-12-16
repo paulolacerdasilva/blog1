@@ -3,7 +3,7 @@
         <div class="card-header bg-info text-white">
             Postagens
             <div class="float-rigth">
-                <a href="<?=URL?>/post/cadastrar" class="btn btn-light">Escrever</a>
+                <a href="<?=URL?>/posts/cadastrar" class="btn btn-light">Escrever</a>
             </div>
             <div class="card-body">
                 <p>Listar post aqui</p>

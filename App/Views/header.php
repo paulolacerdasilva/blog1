@@ -20,8 +20,8 @@
 
             <?php if(isset($_SESSION['usuario_id'])): ?>
                 <span class="navbar-text">
-                    <p>Olá, <?= $_SESSION['usuario_nome'] ?>, Seja bem-vindo(a)!</p>
-                    <a class="btn btn-sm btn-danger" href="<?=URL ?>/usuarios/sair" data-tooltip="tooltip" title="Sair do Sistema">Sair</a>
+                    <p>Olá, <?= $_SESSION['usuario_nome'] ?>, seja bem-vindo(a)!</p>
+                    <a class="btn btn-sm btn-danger" href="<?=URL?>/usuarios/sair" data-tooltip="tooltip" title="Sair do sistema">Sair</a>
                 </span>
                 <?php else: ?>
 
@@ -29,12 +29,9 @@
             <div class="position-absolute" style="right: 0;">
                 <a class="btn btn-info mr-3" 
                 href="<?=URL?>/usuarios/cadastrar" data-tooltip="tooltip" title="Não tem uma conta? Cadastre-se">Cadastre-se</a>
-                <a class="btn btn-info" href="<?=URL?>/usuarios/logar" data-tooltip="tooltip" title="Tem uma conta? Faça login">Entrar</a>
+                <a class="btn btn-info" href="<?=URL?>/usuarios/login" data-tooltip="tooltip" title="Tem uma conta? Faça login">Entrar</a>
             </div>
-             
             <?php endif; ?>
-
-
         </nav>
     </div>
 </header>

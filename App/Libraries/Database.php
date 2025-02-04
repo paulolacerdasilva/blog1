@@ -28,15 +28,15 @@ class Database{
         }//fim do catch
     }//fim do método construtor
 
-    //prepara o statement do query
+    // prepara o statement com query
     public function query($sql){
-        $this->stmt = $this->dbh->prepare($sql);
+        //prepara a consulta sql
+        $this->stmt= $this->dbh->prepare($sql);
     }//fim da função query
-
     //vincula um valor a um parâmetro
-    public function bind($parametro, $valor, $tipo = null){
+    public function bind($parametro, $valor, $tipo= null){
         if(is_null($tipo)):
-            switch (true):
+            switch(true):
                 case is_int($valor):
                     $tipo = PDO::PARAM_INT;
                     break;
@@ -49,34 +49,31 @@ class Database{
                 default:
                     $tipo = PDO::PARAM_STR;
             endswitch;
-        endif;      
+        endif;
         $this->stmt->bindValue($parametro, $valor, $tipo);
     }//fim da função bind
-          
+    //executa prepared statement
+     
     public function executa(){
         return $this->stmt->execute();
-    }//fim da função da executa
+    }//fim da função executa
 
-    //retorna um único registro
+    //obtem um único registro 
     public function resultado(){
         $this->executa();
         return $this->stmt->fetch(PDO::FETCH_OBJ);
-    }//fim da função resultado
-
-    //retorna o conjunto de registros
+    }//fim da função resultados
+    //obtem um conjunto de registros
     public function resultados(){
         $this->executa();
         return $this->stmt->fetchAll(PDO::FETCH_OBJ);
     }//fim da função resultados
-
-    //retorna o número de linhas afetadas pela instrução SQL
+    //retorna o número de linhas afetadas pela última instrução SQL
     public function totalResultados(){
         return $this->stmt->rowCount();
-    }//fim da função totalResuldados
-
-    //retorna o ultimo id inserido
+    }//fim da função totalResultados
+    //retorna o ultimo ID inserido no banco de dados
     public function ultimoIdInserido(){
         return $this->dbh->lastInsertId();
     }//fim da função ultimoIdInserido
-
 }//fim da classe Database
